@@ -315,3 +315,39 @@
     width: 70%;
   }
 }
+.signin {
+  background: #ffffff;
+  border-radius: 22.6339px;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 200000000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.signin button {
+  width: 70%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30.6143px;
+  line-height: 62px;
+  text-align: center;
+  padding: 10px 0;
+  border: none;
+  color: #f4f4f4;
+  background: #8c8cff;
+  border-radius: 61.1225px;
+}
+.signin div {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 1000000000000;
+}

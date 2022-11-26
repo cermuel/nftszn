@@ -1,19 +1,36 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import AddNFT from "./AddNFT";
 import "./App.css";
 import Card from "./Card";
 import Home from "./Home";
-import Signin from "./Signin";
 import { NFTLIst } from "./types";
-import { signOut } from "firebase/auth";
-import { auth } from "./firebase-config";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "./firebase-config";
 import MarketPlace from "./MarketPlace";
 
 export const AppContext = createContext<any | null>({});
 
 function App() {
   const [isAuth, setisAuth] = useState<any>(localStorage.getItem("isAuth"));
+
+  const signIn = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      console.log(result);
+      localStorage.setItem("isAuth", "true");
+      setisAuth("true");
+      window.location.pathname = "/marketplace";
+      setshowPopup(false);
+    });
+  };
+
+  const [showPopup, setshowPopup] = useState(false);
 
   //responsive navbar
 
@@ -45,7 +62,6 @@ function App() {
   };
 
   //end of responsive nav
-
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -74,17 +90,32 @@ function App() {
               {isAuth == "true" ? (
                 <button onClick={signUserOut}>Signout</button>
               ) : (
-                <button>
-                  <Link to="/signIn">Sign in</Link>
+                <button
+                  onClick={() => {
+                    setshowPopup(true);
+                  }}
+                >
+                  Sign in
                 </button>
               )}
             </div>
           </div>
+          {showPopup ? (
+            <div className="signin">
+              <button onClick={signIn}>Sign in with email</button>
+              <div
+                onClick={() => {
+                  setshowPopup(false);
+                }}
+              >
+                X
+              </div>
+            </div>
+          ) : null}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/addNFT" element={<AddNFT />} />
             <Route path="/marketplace" element={<MarketPlace />} />
-            <Route path="/signIn" element={<Signin />} />
           </Routes>
         </Router>
       </AppContext.Provider>
