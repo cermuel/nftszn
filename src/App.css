@@ -351,3 +351,76 @@
   right: 5%;
   z-index: 1000000000000;
 }
+.addNFT {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.addNFT input[type="text"] {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 15px 10px;
+  border: none;
+  outline: none;
+  width: 400px;
+  font-size: 20px;
+  outline: none;
+}
+.addNFT button {
+  background: #15bffd;
+  border-radius: 19px;
+  border: none;
+  width: 150px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21.4875px;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.addNFT div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+.addNFT img {
+  width: 300px;
+  height: 300px;
+  border: 6px solid #8c8cff;
+  border-radius: 65.1613px;
+  outline: none;
+}
+.addNFT input[type="file"] {
+  display: none;
+}
+.addNFT label {
+  width: 120px;
+  height: 38px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 31px;
+  /* identical to box height */
+  cursor: pointer;
+  justify-content: center;
+  display: flex;
+
+  align-items: center;
+  color: #ffffff;
+  background: #8c8cff;
+  background-blend-mode: overlay;
+  box-shadow: 0px 3.35211px 3.35211px #5b71e3;
+  border-radius: 10px;
+}
+.addNFT label:focus {
+  box-shadow: none;
+}

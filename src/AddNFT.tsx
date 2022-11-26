@@ -45,7 +45,7 @@ const AddNFT = () => {
         },
       });
       alert("Successfully uploaded");
-      navigate("/");
+      navigate("/marketplace");
     } else {
       alert("Something occured");
     }
@@ -58,23 +58,29 @@ const AddNFT = () => {
   }, []);
 
   return (
-    <div>
+    <div className="addNFT">
       <div>
-        <br />
-        <br />
-        <input type="file" accept="image/*" onChange={handleChange} required />
+        <img src={image} alt="" className="addNFTimage" />
+
+        <label htmlFor="file">Choose Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          id="file"
+          onChange={handleChange}
+          required
+        />
         {/* <button>Upload to Firebase</button> */}
-        <br />
-        <br />
+
         <input
           type="text"
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setnftName(e.target.value)
           }
+          placeholder="NFT Name"
           required
         />
-        <button onClick={addNFT}>SUBMIT</button>
-        <img src={image} alt="" />
+        <button onClick={addNFT}>Submit</button>
       </div>
     </div>
   );
