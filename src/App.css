@@ -219,7 +219,8 @@
 
   color: #000000;
 }
-.below div:nth-child(1) svg {
+.below div:nth-child(2) svg {
+  font-size: 15px;
   color: #196ed3;
 }
 .below div:nth-child(2) {
