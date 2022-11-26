@@ -8,11 +8,10 @@ const Card = ({ val }: any) => {
       <img src={val.image} alt={val.nftname} />
       <div className="below">
         {" "}
+        <div>{val.author.name}</div>
         <div>
-          {val.author.name}{" "}
-          {val.isVerified == true ? <BsPatchCheckFill /> : null}
+          #{val.nftname} {val.isVerified == true ? <BsPatchCheckFill /> : null}
         </div>
-        <div>#{val.nftname}</div>
         <div className="bid">
           Current Bid:{"    "}
           <div>
